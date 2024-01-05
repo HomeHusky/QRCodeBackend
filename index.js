@@ -15,25 +15,25 @@ const relationshipRoutes = require("./routes/relationships.js");
 const slugify = require('slugify');
 
 //middlewares
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', process.env.DOMAIN_CLIENT);
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     res.header('Access-Control-Allow-Credentials', true);
-//     next();
-// });
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', process.env.DOMAIN_CLIENT, process.env.DOMAIN_SERVER);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 app.use(express.json());
-// app.use(
-//     cors({
-//         origin: 'https://qr-code-client.vercel.app',
-//         credentials: true,
-//         // origin: '*',
-//         optionsSuccessStatus: 200
-//     })
-// );
-app.use(cors({ origin: '*' }))
-app.options('*', cors());
+app.use(
+    cors({
+        origin: process.env.DOMAIN_CLIENT,
+        credentials: true,
+        // origin: '*',
+        optionsSuccessStatus: 200
+    })
+);
+// app.use(cors({ origin: '*' }))
+// app.options('*', cors());
 
 app.use(cookieParser());
 
