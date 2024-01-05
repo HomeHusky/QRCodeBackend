@@ -18,18 +18,19 @@ const os = require('os');
 // Lấy địa chỉ IP của máy tính
 const networkInterfaces = os.networkInterfaces();
 //middlewares
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', process.env.DOMAIN_CLIENT);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.header('Access-Control-Allow-Credentials', true);
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', process.env.DOMAIN_CLIENT);
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     res.header('Access-Control-Allow-Credentials', true);
+//     next();
+// });
 
 app.use(express.json());
 app.use(
     cors({
         origin: process.env.DOMAIN_CLIENT,
+        credentials: true,
         // origin: '*',
         optionsSuccessStatus: 200
     })
