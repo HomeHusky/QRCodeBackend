@@ -29,7 +29,7 @@ const networkInterfaces = os.networkInterfaces();
 app.use(express.json());
 app.use(
     cors({
-        origin: process.env.DOMAIN_CLIENT,
+        origin: 'https://qr-code-client.vercel.app',
         credentials: true,
         // origin: '*',
         optionsSuccessStatus: 200
