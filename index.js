@@ -19,10 +19,13 @@ const os = require('os');
 const networkInterfaces = os.networkInterfaces();
 //middlewares
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', process.env.DOMAIN_SERVER); // Thay bằng origin của bạn
-    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Origin', process.env.DOMAIN_CLIENT);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', true);
     next();
 });
+
 app.use(express.json());
 app.use(
     cors({
