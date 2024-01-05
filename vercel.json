@@ -1,0 +1,4 @@
+{
+    "version": 2,
+    "builds": [{ "src": "npm start", "use": "@vercel/node" }]
+  }
