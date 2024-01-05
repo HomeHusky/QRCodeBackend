@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(
     cors({
-        origin: [process.env.DOMAIN_CLIENT, process.env.DOMAIN_CLIENT_IP],
+        origin: process.env.DOMAIN_CLIENT,
         // origin: '*',
         optionsSuccessStatus: 200
     })
