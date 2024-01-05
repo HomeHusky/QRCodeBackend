@@ -17,12 +17,6 @@ const os = require('os');
 
 // Lấy địa chỉ IP của máy tính
 const networkInterfaces = os.networkInterfaces();
-// const ipAddress = networkInterfaces['Wi-Fi'][1].address; // Thay 'Wi-Fi' bằng tên giao diện mạng của bạn
-
-// console.log('IP Address:', ipAddress);
-
-// const domainClientIp = "http://" + ipAddress + ":3000";
-console.log(domainClientIp);
 //middlewares
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', process.env.DOMAIN_SERVER); // Thay bằng origin của bạn
