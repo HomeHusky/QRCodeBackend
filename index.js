@@ -17,11 +17,11 @@ const os = require('os');
 
 // Lấy địa chỉ IP của máy tính
 const networkInterfaces = os.networkInterfaces();
-const ipAddress = networkInterfaces['Wi-Fi'][1].address; // Thay 'Wi-Fi' bằng tên giao diện mạng của bạn
+// const ipAddress = networkInterfaces['Wi-Fi'][1].address; // Thay 'Wi-Fi' bằng tên giao diện mạng của bạn
 
-console.log('IP Address:', ipAddress);
+// console.log('IP Address:', ipAddress);
 
-const domainClientIp = "http://" + ipAddress + ":3000";
+// const domainClientIp = "http://" + ipAddress + ":3000";
 console.log(domainClientIp);
 //middlewares
 app.use((req, res, next) => {
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(
     cors({
-        origin: [process.env.DOMAIN_CLIENT, domainClientIp, process.env.DOMAIN_CLIENT_IP],
+        origin: [process.env.DOMAIN_CLIENT, process.env.DOMAIN_CLIENT_IP],
         // origin: '*',
         optionsSuccessStatus: 200
     })
