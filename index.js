@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-var cors = require('cors')
+const cors = require('cors')
 const db = require("./models");
 require('dotenv').config();
 const multer = require("multer");
@@ -16,24 +16,25 @@ const slugify = require('slugify');
 
 //middlewares
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.header('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    // res.setHeader('Access-Control-Allow-Credentials', 'true');
+
     next();
 });
 
 app.use(express.json());
-app.use(
-    cors({
-        origin: process.env.DOMAIN_CLIENT,
-        credentials: true,
-        // origin: '*',
-        optionsSuccessStatus: 200
-    })
-);
-// app.use(cors({ origin: '*' }))
-// app.options('*', cors());
+app.use(cors());
+
+// app.use(
+//     cors({
+//         origin: process.env.DOMAIN_CLIENT,
+//         credentials: true,
+//         // origin: '*',
+//         optionsSuccessStatus: 200
+//     })
+// );
 
 app.use(cookieParser());
 
