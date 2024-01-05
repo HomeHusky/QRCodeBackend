@@ -13,10 +13,7 @@ const commentRoutes = require("./routes/comments.js");
 const likeRoutes = require("./routes/likes.js");
 const relationshipRoutes = require("./routes/relationships.js");
 const slugify = require('slugify');
-const os = require('os');
 
-// Lấy địa chỉ IP của máy tính
-const networkInterfaces = os.networkInterfaces();
 //middlewares
 // app.use((req, res, next) => {
 //     res.header('Access-Control-Allow-Origin', process.env.DOMAIN_CLIENT);
@@ -27,14 +24,17 @@ const networkInterfaces = os.networkInterfaces();
 // });
 
 app.use(express.json());
-app.use(
-    cors({
-        origin: 'https://qr-code-client.vercel.app',
-        credentials: true,
-        // origin: '*',
-        optionsSuccessStatus: 200
-    })
-);
+// app.use(
+//     cors({
+//         origin: 'https://qr-code-client.vercel.app',
+//         credentials: true,
+//         // origin: '*',
+//         optionsSuccessStatus: 200
+//     })
+// );
+app.use(cors({ origin: '*' }))
+app.options('*', cors());
+
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
