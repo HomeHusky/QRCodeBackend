@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "sa",
+    "password": "Toan@Cuong@2023-2022",
+    "database": "test",
+    "host": "103.176.179.225",
+    "dialect": "mssql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
